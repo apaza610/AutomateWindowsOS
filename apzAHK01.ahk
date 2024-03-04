@@ -7,13 +7,34 @@
 SetTitleMatchMode(2)
 ; ScrollLock:: WinActivate("Freeplane")
 ; SC045:: WinActivate("Visual Studio Code") ;PauseBreak key
-F13:: WinActivate("Freeplane")
-F14:: WinActivate("Krita")
-F15:: WinActivate("ApzTool")
-F16:: WinActivate("drawio")
-F17:: WinActivate("ScreenToGif")
-F22:: WinActivate("Double Commander")
-F24:: WinActivate("Firefox")
+F13:: {
+	WinActivate("Freeplane")
+	moverCursorAlCentro()
+}
+F14:: {
+	WinActivate("Krita")
+	moverCursorAlCentro()
+}
+F15:: {
+	WinActivate("ApzTool")
+	moverCursorAlCentro()
+}
+F16:: {
+	WinActivate("drawio")
+	moverCursorAlCentro()
+}
+F17:: {
+	WinActivate("ScreenToGif")
+	moverCursorAlCentro()
+}
+F22:: {
+	WinActivate("Double Commander")
+	moverCursorAlCentro()
+}
+F24:: {
+	WinActivate("Firefox")
+	moverCursorAlCentro()
+}
 
 ; Cambiando el teclado a Hiragana
 SC045::{            ;PauseBreak key
@@ -90,9 +111,16 @@ Insert::{
 }
 #HotIf
 
-; Alt & Tab::{
-;     Send("^!{Tab}")
-; }
+Alt & Tab::{
+	MouseMove(960,600)
+	Send("^!{Tab}")
+	Sleep(200)
+	vntnTaskSwitcher := WinGetTitle("A")	;ventana de alt tab
+	while (WinExist(vntnTaskSwitcher)){
+		Sleep(100)
+	}
+	moverCursorAlCentro()
+}
 
 ;---------------------------Creacion de anotacion----------------------------------------
 CoordMode "Mouse","Screen"
