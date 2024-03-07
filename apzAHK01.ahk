@@ -48,8 +48,19 @@ SC045::{            ;PauseBreak key
 ; Centrear el cursor en medio de ventana actual
 OutX := 0, OutY := OutWidth := OutHeight := 0
 
-CapsLock::{
-    moverCursorAlCentro()
+; CapsLock::moverCursorAlCentro()
+; SetCapsLockState('AlwaysOff')
+~CapsLock::{
+	if (A_PriorHotkey != "~CapsLock" or A_TimeSincePriorHotkey > 400){
+		KeyWait "CapsLock"
+		moverCursorAlCentro()
+		SetCapsLockState('Off')
+		return
+	}
+	else{
+		Send "{End}"
+		SetCapsLockState('Off')
+	}
 }
 
 moverCursorAlCentro(){
@@ -211,5 +222,5 @@ CerrarApp(*){
 }
 
 ;-------------------hotstrings----------------------------------------------------
-::vvv::video.mp4
+::vvv::vid1.mp4
 return
