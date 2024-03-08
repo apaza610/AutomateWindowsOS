@@ -58,6 +58,8 @@ OutX := 0, OutY := OutWidth := OutHeight := 0
 		return
 	}
 	else{
+		Send "{Right}"
+		Send "{Right}"
 		Send "{End}"
 		SetCapsLockState('Off')
 	}
