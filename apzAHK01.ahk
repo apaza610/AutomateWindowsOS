@@ -185,8 +185,13 @@ F15::{
 ;---------------------------------------------------------------------------------
 ;F16::MsgBox("F16")
 F17:: {
-	WinActivate("ApzTool")
-	moverCursorAlCentro()
+	if WinExist("ApzTool"){
+		WinActivate("ApzTool")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("E:\misapps\pcjava\ApazaMmpTool\out\artifacts\ApazaMmpTool_jar\ApazaMmpTool.jar")
+	}
 }
 F18:: {
 	if WinExist("drawio"){
