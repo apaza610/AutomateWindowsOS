@@ -2,39 +2,12 @@
 #SingleInstance
 
 #o::Reload
+;#o::KeyHistory
 
 ; Activar app aprovechando teclas poco usadas
 SetTitleMatchMode(2)
 ; ScrollLock:: WinActivate("Freeplane")
 ; SC045:: WinActivate("Visual Studio Code") ;PauseBreak key
-F13:: {
-	WinActivate("Freeplane")
-	moverCursorAlCentro()
-}
-F14:: {
-	WinActivate("Krita")
-	moverCursorAlCentro()
-}
-F15:: {
-	WinActivate("ApzTool")
-	moverCursorAlCentro()
-}
-F16:: {
-	WinActivate("drawio")
-	moverCursorAlCentro()
-}
-F17:: {
-	WinActivate("ScreenToGif")
-	moverCursorAlCentro()
-}
-F22:: {
-	WinActivate("Double Commander")
-	moverCursorAlCentro()
-}
-F24:: {
-	WinActivate("Firefox")
-	moverCursorAlCentro()
-}
 
 ; Cambiando el teclado a Hiragana
 SC045::{            ;PauseBreak key
@@ -48,22 +21,8 @@ SC045::{            ;PauseBreak key
 ; Centrear el cursor en medio de ventana actual
 OutX := 0, OutY := OutWidth := OutHeight := 0
 
-; CapsLock::moverCursorAlCentro()
-; SetCapsLockState('AlwaysOff')
-~CapsLock::{
-	if (A_PriorHotkey != "~CapsLock" or A_TimeSincePriorHotkey > 400){
-		KeyWait "CapsLock"
-		moverCursorAlCentro()
-		SetCapsLockState('Off')
-		return
-	}
-	else{
-		Send "{Right}"
-		Send "{Right}"
-		Send "{End}"
-		SetCapsLockState('Off')
-	}
-}
+SetCapsLockState('AlwaysOff')
+CapsLock::Send("{End}")
 
 moverCursorAlCentro(){
     CoordMode("Mouse", "Window")
@@ -134,50 +93,10 @@ Alt & Tab::{
 	}
 	moverCursorAlCentro()
 }
-
-;---------------------------Creacion de anotacion----------------------------------------
-CoordMode "Mouse","Screen"
-
-F19::{
-	MiGui := Gui()	;Gui("Resize")	pero pone barra encima
-	MiGui.Opt("AlwaysOnTop")
-		
-		MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939","abc def ghi")
-		MiGui.Show()
-		WinSetStyle "-0xC00000", "A"
-		MouseGetPos &RatonX, &RatonY
-		WinMove RatonX, RatonY, 200, 14, MiGui
-}
-^F19::Reload
-
-#HotIf WinActive("ahk_class AutoHotkeyGUI")
-~Alt & LButton:: {
-	MouseGetPos &RatonX, &RatonY
-	WinMove RatonX, RatonY,,, "A"
-}
-
-~Alt & Right:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,W+20,, "A"
-}
-
-~Alt & Left:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,W-20,, "A"
-}
-
-~Alt & Up:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,,H-14, "A"
-}
-
-~Alt & Down:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,,H+14, "A"
-}
-#HotIf
-;--------------------------Creacion de imagen--------------------------------------------
-F18::{
+;---------------------------Teclas de Funcion-------------------------------------------
+;#F13::MsgBox("Tecla NumLock")
+;--------------------------Creacion de miniIMAGEN--------------------------------------------
+F14::{		;Tecla Divide
 	elPath := A_Clipboard	; C:\Users\win\bitmap.png
 
 	if InStr(elPath, A_Space){
@@ -185,7 +104,7 @@ F18::{
 		elPath := "E:\win\Pictures\SavedPictures\MapeadoDeTeclas.png"
 	}
 	else if not (InStr(elPath, ".png") or InStr(elPath, ".jpg") or InStr(elPath, ".gif")) {
-		MsgBox('path en clipboard is not a picture')
+		; MsgBox('path en clipboard is not a picture')
 		elPath := "E:\win\Pictures\SavedPictures\MapeadoDeTeclas.png"
 	}
 
@@ -223,6 +142,137 @@ CerrarApp(*){
 	WinClose("A")
 }
 
+;---------------------------Creacion de miniNOTE--------------------------------
+CoordMode "Mouse","Screen"
+F15::{
+	MiGui := Gui()	;Gui("Resize")	pero pone barra encima
+	MiGui.Opt("AlwaysOnTop")
+		
+		MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939","abc def ghi")
+		MiGui.Show()
+		WinSetStyle "-0xC00000", "A"
+		MouseGetPos &RatonX, &RatonY
+		WinMove RatonX, RatonY, 200, 14, MiGui
+}
+^F15::Reload
+
+#HotIf WinActive("ahk_class AutoHotkeyGUI")
+~Alt & LButton:: {
+	MouseGetPos &RatonX, &RatonY
+	WinMove RatonX, RatonY,,, "A"
+}
+
+~Alt & Right:: {
+	WinGetPos &X,&Y,&W,&H, "A"
+	WinMove ,,W+20,, "A"
+}
+
+~Alt & Left:: {
+	WinGetPos &X,&Y,&W,&H, "A"
+	WinMove ,,W-20,, "A"
+}
+
+~Alt & Up:: {
+	WinGetPos &X,&Y,&W,&H, "A"
+	WinMove ,,,H-14, "A"
+}
+
+~Alt & Down:: {
+	WinGetPos &X,&Y,&W,&H, "A"
+	WinMove ,,,H+14, "A"
+}
+#HotIf
+;---------------------------------------------------------------------------------
+;F16::MsgBox("F16")
+F17:: {
+	WinActivate("ApzTool")
+	moverCursorAlCentro()
+}
+F18:: {
+	if WinExist("drawio"){
+		WinActivate("drawio")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
+	}
+}
+F19:: {
+	if WinExist("Krita"){
+		WinActivate("Krita")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
+	}
+}
+F22:: {
+	if WinExist("Freeplane"){
+		WinActivate("Freeplane")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("C:\Program Files\Freeplane\freeplane.exe")
+	}	
+}
+F23:: {
+	if WinExist("Blender"){
+		WinActivate("Blender")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("E:\Progs\art3d\blender-4.1\blender.exe")
+	}
+}
+
+#F24:: {
+	if WinExist("ScreenToGif"){
+		WinActivate("ScreenToGif")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("C:\Program Files\ScreenToGif\ScreenToGif.exe")
+	}
+}
+
+#F21::moverCursorAlCentro()
+
+lstBrowsers := ["Firefox", "Brave", "Edge"]
+pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
+cntBrowsers := 1
++F20:: {
+	global cntBrowsers
+	if WinExist(lstBrowsers[cntBrowsers]){
+		WinActivate(lstBrowsers[cntBrowsers])
+		moverCursorAlCentro()
+	}
+	else{
+		Run(pthBrowsers[cntBrowsers])
+	}
+	if cntBrowsers < lstBrowsers.Length
+		cntBrowsers++
+	else
+		cntBrowsers := 1
+}
+
+lstFileManagers := ["One Commander", "Double Commander"]
+pthFileManagers := ["C:\Program Files\OneCommander\OneCommander.exe", "C:\Program Files\OneCommander\OneCommander.exe"]
+cntFileManager := 1
++F19:: {
+	global cntFileManager
+	if WinExist(lstFileManagers[cntFileManager]){
+		WinActivate(lstFileManagers[cntFileManager])
+		moverCursorAlCentro()
+	}
+	else{
+		Run(pthFileManagers[cntFileManager])
+	}
+	if cntFileManager < lstFileManagers.Length
+		cntFileManager++
+	else
+		cntFileManager := 1
+}
++F8::MsgBox("+f8")
 ;-------------------hotstrings----------------------------------------------------
-::vvv::vid1.mp4
+::vvv::vid0.mp4
 return
