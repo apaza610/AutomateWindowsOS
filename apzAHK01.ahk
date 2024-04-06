@@ -279,5 +279,6 @@ cntFileManager := 1
 }
 +F8::MsgBox("+f8")
 ;-------------------hotstrings----------------------------------------------------
-::vvv::vid0.mp4
 return
+::vvv::vid0.mp4
+::sss::show_debug_message(
