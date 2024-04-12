@@ -79,6 +79,7 @@ Insert::{
 	
 	MouseGetPos &RatonX, &RatonY
 	MiGui.Show()
+	WinSetStyle "-0xC00000", "A"
 	WinMove RatonX, RatonY, , , MiGui
 }
 #HotIf
