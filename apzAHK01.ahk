@@ -242,7 +242,7 @@ F23:: {
 
 #F21::moverCursorAlCentro()
 
-lstBrowsers := ["Firefox", "Brave", "Edge"]
+lstBrowsers := ["Firefox", "Edge"]	;"Brave"
 pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
 cntBrowsers := 1
 +F20:: {
@@ -260,8 +260,8 @@ cntBrowsers := 1
 		cntBrowsers := 1
 }
 
-lstFileManagers := ["One Commander", "Double Commander"]
-pthFileManagers := ["C:\Program Files\OneCommander\OneCommander.exe", "C:\Program Files\OneCommander\OneCommander.exe"]
+lstFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "Double Commander"]	;"One Commander"
+pthFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "C:\Program Files\OneCommander\OneCommander.exe"]	;"C:\Program Files\OneCommander\OneCommander.exe"
 cntFileManager := 1
 +F19:: {
 	global cntFileManager
