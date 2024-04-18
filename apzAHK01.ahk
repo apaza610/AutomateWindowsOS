@@ -243,7 +243,7 @@ F23:: {
 
 #F21::moverCursorAlCentro()
 
-lstBrowsers := ["Firefox", "Edge"]	;"Brave"
+lstBrowsers := ["Firefox", "Brave", "Edge"]
 pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
 cntBrowsers := 1
 +F20:: {
