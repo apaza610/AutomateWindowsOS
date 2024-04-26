@@ -67,7 +67,7 @@ Insert::{
 	Btn2_Click(*){
 		CerrarApp()
 		WinActivate('Freeplane')
-		Send("!{K}")
+		Send("!+{K}")
 	}
 	Btn3 := MiGui.AddButton("x160 y5 w75", "link")
 	Btn3.OnEvent("Click", Btn3_Click)
