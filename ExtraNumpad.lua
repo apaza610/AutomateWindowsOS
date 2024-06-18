@@ -5,12 +5,12 @@ lmc_set_handler('ApazaMacropad', function(button,direction)
      --lmc_spawn("calc")
      --print( lmc_get_window_title() )
      --lmc_send_keys('#{F21}')
-     --   os.execute(".exe Path Here")
-     --   lmc_load('File Path Here')
+     --os.execute(".exe Path Here")
+     --lmc_load('File Path Here')
      --if string.find( lmc_get_window_title(), "Blender" ) then
-     --   lmc_say('using blender')
+     --   lmc_say('using blender app')
      --elseif string.find( lmc_get_window_title(), "Freeplane" ) then
-     --   lmc_say('using freeplane')
+     --   lmc_say('using freeplane app')
      --end
 
      if (direction == 1) then return end
