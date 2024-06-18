@@ -8,3 +8,6 @@ Is like having 29 new keys:
 I don't want to memorize 3 shortcuts to: insert image in node, insert image in detail, insert link to file/folder
 So a menu was created that when pressing the INSERT key asks which one do you want:
 ![mindMap_insertMenu](https://github.com/apaza610/AutomateWindowsOS/assets/10149862/49f2d446-b16e-453c-a917-06bea3005252)
+
+### Make it start with windows
+Copy the .bat file to the windows start apps folder or use the shortcut shell:startup
