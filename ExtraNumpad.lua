@@ -1,5 +1,5 @@
 ------------------- LUA Macros Profile Chooser (29 teclas adicionales)-------------------------------------------------
-lmc_device_set_name('ApazaMacropad','2C5D5410')
+lmc_device_set_name('ApazaMacropad','251754D0')
 lmc_print_devices()
 lmc_set_handler('ApazaMacropad', function(button,direction)
      --lmc_spawn("calc")

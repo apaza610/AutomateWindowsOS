@@ -184,7 +184,17 @@ F15::{
 }
 #HotIf
 ;---------------------------------------------------------------------------------
-;F16::MsgBox("F16")
+F16::{
+	; MsgBox("F16")
+	if WinExist("FuriganaTAGs"){
+		WinActivate("FuriganaTAGs")
+		moverCursorAlCentro()
+	}
+	else{
+		MsgBox("The app must be opened first")
+	}
+}
+
 F17:: {
 	if WinExist("ApzTool"){
 		WinActivate("ApzTool")
