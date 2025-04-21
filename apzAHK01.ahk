@@ -15,7 +15,7 @@ SC045::{            ;PauseBreak key
     ; SoundBeep(999,300)
     Sleep(100)
     Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
-    ComObject("SAPI.SpVoice").Speak("japanese keyboard")
+    ; ComObject("SAPI.SpVoice").Speak("japanese keyboard")
 }
 
 ; Centrear el cursor en medio de ventana actual
@@ -90,7 +90,7 @@ Alt & Tab::{
 	Sleep(200)
 	vntnTaskSwitcher := WinGetTitle("A")	;ventana de alt tab
 	while (WinExist(vntnTaskSwitcher)){
-		Sleep(100)
+		Sleep(200)
 	}
 	moverCursorAlCentro()
 }
@@ -106,7 +106,7 @@ F14::{		;Tecla Divide
 	}
 	else if not (InStr(elPath, ".png") or InStr(elPath, ".jpg") or InStr(elPath, ".gif")) {
 		; MsgBox('path en clipboard is not a picture')
-		elPath := "E:\win\Pictures\SavedPictures\MapeadoDeTeclas.png"
+		elPath := "E:\win\Pictures\Screenshots\MapeadoDeTeclas.png"
 	}
 
 	aLados := getDimensiones(elPath)
