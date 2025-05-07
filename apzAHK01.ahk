@@ -55,14 +55,14 @@ CoordMode "Mouse","Screen"
 #HotIf WinActive('Freeplane')
 Insert::{
 	MiGui := Gui()
-	Btn1 := MiGui.AddButton("x5 y5 w75", "image↓")
+	Btn1 := MiGui.AddButton("x5 y5 w75", "img↓")
 	Btn1.OnEvent("Click", Btn1_Click)
 	Btn1_Click(*){
 		CerrarApp()
 		WinActivate('Freeplane')
 		Send("{Insert}")
 	}
-	Btn2 := MiGui.AddButton("x80 y5 w75", "image↑")
+	Btn2 := MiGui.AddButton("x80 y5 w75", "img↑")
 	Btn2.OnEvent("Click", Btn2_Click)
 	Btn2_Click(*){
 		CerrarApp()
@@ -78,7 +78,7 @@ Insert::{
 	}
 	
 	MouseGetPos &RatonX, &RatonY
-	MiGui.Show()
+	MiGui.Show("w225 h0")
 	WinSetStyle "-0xC00000", "A"
 	WinMove RatonX, RatonY, , , MiGui
 }
