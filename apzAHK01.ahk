@@ -6,11 +6,11 @@
 ; #o::Reload
 ;#o::KeyHistory
 
-~<!Tab::{
-	Sleep(500)
+~<!Tab::{										; ~ makes the AltTab work with no alteration
+	Sleep(500)									; wait till the alt tab menu exist
 	while WinActive("ahk_exe AltTabTer.exe")
 		Sleep(500)
-	Sleep(300)
+	Sleep(300)									; time needed to wake up app
 	moverCursorAlCentro()
 }
 
