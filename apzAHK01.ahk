@@ -1,10 +1,19 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance
 
-#o::Reload
+#Include "hotkeysMaestro.ahk"
+
+; #o::Reload
 ;#o::KeyHistory
 
-; Activar app aprovechando teclas poco usadas
+~<!Tab::{
+	Sleep(500)
+	while WinActive("ahk_exe AltTabTer.exe")
+		Sleep(500)
+	Sleep(300)
+	moverCursorAlCentro()
+}
+
 SetTitleMatchMode(2)
 ; ScrollLock:: WinActivate("Freeplane")
 ; SC045:: WinActivate("Visual Studio Code") ;PauseBreak key
@@ -21,8 +30,8 @@ SC045::{            ;PauseBreak key
 ; Centrear el cursor en medio de ventana actual
 OutX := 0, OutY := OutWidth := OutHeight := 0
 
-SetCapsLockState('AlwaysOff')
-CapsLock::Send("{End}")
+; SetCapsLockState('AlwaysOff')
+; CapsLock::Send("{End}")
 
 moverCursorAlCentro(){
     CoordMode("Mouse", "Window")
@@ -74,7 +83,6 @@ Insert::{
 	Btn3_Click(*){
 		CerrarApp()
 		WinActivate('Freeplane')
-		Send("^+{K}")
 	}
 	
 	MouseGetPos &RatonX, &RatonY
@@ -82,18 +90,9 @@ Insert::{
 	WinSetStyle "-0xC00000", "A"
 	WinMove RatonX, RatonY, , , MiGui
 }
+
 #HotIf
 
-Alt & Tab::{
-	MouseMove(960,600)
-	Send("^!{Tab}")
-	Sleep(200)
-	vntnTaskSwitcher := WinGetTitle("A")	;ventana de alt tab
-	while (WinExist(vntnTaskSwitcher)){
-		Sleep(200)
-	}
-	moverCursorAlCentro()
-}
 ;---------------------------Teclas de Funcion-------------------------------------------
 ;#F13::MsgBox("Tecla NumLock")
 ;--------------------------Creacion de miniIMAGEN--------------------------------------------
@@ -184,45 +183,44 @@ F15::{
 }
 #HotIf
 ;---------------------------------------------------------------------------------
-F16::{
-	; MsgBox("F16")
-	if WinExist("FuriganaTAGs"){
-		WinActivate("FuriganaTAGs")
-		moverCursorAlCentro()
-	}
-	else{
-		MsgBox("The app must be opened first")
-	}
-}
+; F16::{
+; 	if WinExist("FuriganaTAGs"){
+; 		WinActivate("FuriganaTAGs")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		MsgBox("The app must be opened first")
+; 	}
+; }
 
-F17:: {
-	if WinExist("ApzTool"){
-		WinActivate("ApzTool")
-		moverCursorAlCentro()
-	}
-	else{
-		Run("E:\misapps\pcjava\ApazaMmpTool\out\artifacts\ApazaMmpTool_jar\ApazaMmpTool.jar")
-	}
-}
-F18:: {
-	if WinExist("drawio"){
-		WinActivate("drawio")
-		moverCursorAlCentro()
-	}
-	else{
-		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
-	}
-}
-F19:: {
-	if WinExist("Krita"){
-		WinActivate("Krita")
-		moverCursorAlCentro()
-	}
-	else{
-		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
-	}
-}
-F22:: {
+; F17:: {
+; 	if WinExist("ApzTool"){
+; 		WinActivate("ApzTool")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run("E:\misapps\pcjava\ApazaMmpTool\out\artifacts\ApazaMmpTool_jar\ApazaMmpTool.jar")
+; 	}
+; }
+; F18:: {
+; 	if WinExist("drawio"){
+; 		WinActivate("drawio")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
+; 	}
+; }
+; F19:: {
+; 	if WinExist("Krita"){
+; 		WinActivate("Krita")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
+; 	}
+; }
++F20:: {
 	if WinExist("Freeplane"){
 		WinActivate("Freeplane")
 		moverCursorAlCentro()
@@ -231,63 +229,63 @@ F22:: {
 		Run("C:\Program Files\Freeplane\freeplane.exe")
 	}	
 }
-F23:: {
-	if WinExist("Blender"){
-		WinActivate("Blender")
-		moverCursorAlCentro()
-	}
-	else{
-		Run("E:\Progs\art3d\blender-4.1\blender.exe")
-	}
-}
+; #F21::MsgBox("ddddddddddddddddddd")
+; F23:: {
+; 	if WinExist("Blender"){
+; 		WinActivate("Blender")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run("E:\Progs\art3d\blender-4.1\blender.exe")
+; 	}
+; }
 
-#F24:: {
-	if WinExist("ScreenToGif"){
-		WinActivate("ScreenToGif")
-		moverCursorAlCentro()
-	}
-	else{
-		Run("C:\Program Files\ScreenToGif\ScreenToGif.exe")
-	}
-}
-
-#F21::moverCursorAlCentro()
+; #F24:: {
+; 	if WinExist("ScreenToGif"){
+; 		WinActivate("ScreenToGif")
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run("C:\Program Files\ScreenToGif\ScreenToGif.exe")
+; 	}
+; }
 
 lstBrowsers := ["Firefox", "Brave", "Edge"]
 pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
 cntBrowsers := 1
-+F20:: {
-	global cntBrowsers
-	if WinExist(lstBrowsers[cntBrowsers]){
-		WinActivate(lstBrowsers[cntBrowsers])
-		moverCursorAlCentro()
-	}
-	else{
-		Run(pthBrowsers[cntBrowsers])
-	}
-	if cntBrowsers < lstBrowsers.Length
-		cntBrowsers++
-	else
-		cntBrowsers := 1
-}
+; +F20:: {
+; 	global cntBrowsers
+; 	if WinExist(lstBrowsers[cntBrowsers]){
+; 		WinActivate(lstBrowsers[cntBrowsers])
+; 		moverCursorAlCentro()
+; 	}
+; 	else{
+; 		Run(pthBrowsers[cntBrowsers])
+; 	}
+; 	if cntBrowsers < lstBrowsers.Length
+; 		cntBrowsers++
+; 	else
+; 		cntBrowsers := 1
+; }
 
-lstFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "Double Commander"]	;"One Commander"
-pthFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "C:\Program Files\OneCommander\OneCommander.exe"]	;"C:\Program Files\OneCommander\OneCommander.exe"
-cntFileManager := 1
-+F19:: {
-	global cntFileManager
-	if WinExist(lstFileManagers[cntFileManager]){
-		WinActivate(lstFileManagers[cntFileManager])
-		moverCursorAlCentro()
-	}
-	else{
-		Run(pthFileManagers[cntFileManager])
-	}
-	if cntFileManager < lstFileManagers.Length
-		cntFileManager++
-	else
-		cntFileManager := 1
-}
+; lstFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "Double Commander"]	;"One Commander"
+; pthFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "C:\Program Files\OneCommander\OneCommander.exe"]	;"C:\Program Files\OneCommander\OneCommander.exe"
+; cntFileManager := 1
+; +F19:: {
+	; global cntFileManager
+	; if WinExist(lstFileManagers[cntFileManager]){
+	; 	WinActivate(lstFileManagers[cntFileManager])
+	; 	moverCursorAlCentro()
+	; }
+	; else{
+	; 	Run(pthFileManagers[cntFileManager])
+	; }
+	; if cntFileManager < lstFileManagers.Length
+	; 	cntFileManager++
+	; else
+	; 	cntFileManager := 1
+; 	moverCursorAlCentro()
+; }
 +F8::MsgBox("+f8")
 ;-------------------hotstrings----------------------------------------------------
 return

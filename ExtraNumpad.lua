@@ -64,22 +64,22 @@ lmc_set_handler('ApazaMacropad', function(button,direction)
          lmc_send_keys('{F24}')
      ----------------------------------------------------------------
      elseif (button == 97) then      --1--(ON)
-          lmc_send_keys('#{F24}')
+          lmc_send_keys('+{F24}')
      elseif (button == 35) then      --END--(OFF)
           lmc_send_keys('+{F12}')
      ----------------------------------------------------------------
      elseif (button == 98) then     --2--(ON)
-          lmc_send_keys('#{F23}')
+          lmc_send_keys('+{F23}')
      elseif (button == 40) then     --DOWN--(OFF)
           lmc_send_keys('+{F11}')
      ----------------------------------------------------------------
      elseif (button == 99) then      --3--(ON)
-          lmc_send_keys('#{F22}')
+          lmc_send_keys('+{F22}')
      elseif (button == 34) then     --PgDn--(OFF)
           lmc_send_keys('+{F10}')
      ---------------------------------------------------------------
      elseif (button == 13) then      --ENTER--
-         lmc_send_keys('#{F21}')
+         lmc_send_keys('+{F21}')
      ----------------------------------------------------------------
      elseif (button == 96) then     --0--(NumLock ON)
          lmc_send_keys('+{F20}')
