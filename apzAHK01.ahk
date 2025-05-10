@@ -2,17 +2,17 @@
 #SingleInstance
 
 #Include "hotkeysMaestro.ahk"
-
+#Include "hotkeysIdiomas.ahk"
+#Include "centrearMouse.ahk"
 ; #o::Reload
-;#o::KeyHistory
 
-~<!Tab::{										; ~ makes the AltTab work with no alteration
-	Sleep(500)									; wait till the alt tab menu exist
-	while WinActive("ahk_exe AltTabTer.exe")
-		Sleep(500)
-	Sleep(300)									; time needed to wake up app
-	moverCursorAlCentro()
-}
+; ~<!Tab::{										; ~ makes the AltTab work with no alteration
+; 	Sleep(500)									; wait till the alt tab menu exist
+; 	while WinActive("ahk_exe AltTabTer.exe")
+; 		Sleep(500)
+; 	Sleep(300)									; time needed to wake up app
+; 	moverCursorAlCentro()
+; }
 
 SetTitleMatchMode(2)
 ; ScrollLock:: WinActivate("Freeplane")
@@ -20,10 +20,10 @@ SetTitleMatchMode(2)
 
 ; Cambiando el teclado a Hiragana
 SC045::{            ;PauseBreak key
-    Send("{Alt Down}{LShift Down}{LShift Up}{Alt Up}")
+    ; Send("{Alt Down}{LShift Down}{LShift Up}{Alt Up}")
     ; SoundBeep(999,300)
-    Sleep(100)
-    Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
+    ; Sleep(100)
+    ; Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
     ; ComObject("SAPI.SpVoice").Speak("japanese keyboard")
 }
 
