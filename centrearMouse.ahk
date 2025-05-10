@@ -16,10 +16,10 @@ WindowChanged(wParam, lParam, *) {
     if (wParam = SHELLHOOK_WINDOWACTIVATED) {
         if (lParam != previousHwnd) {
             previousHwnd := lParam
-            ; if !GetKeyState("LButton", "P"){        ; si usuario NO esta presionando LMB
+            if !GetKeyState("LButton", "P"){        ; si usuario NO esta presionando LMB
                 Sleep(200)
                 SetTimer(moverCursorAlCentro, -100) ; Small delay for stability
-            ; }
+            }
         }
     }
 }
