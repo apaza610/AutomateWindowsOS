@@ -18,8 +18,8 @@ WindowChanged(wParam, lParam, *) {
     if (wParam = SHELLHOOK_WINDOWACTIVATED) {
         if (lParam != previousHwnd) {
             previousHwnd := lParam
-             ; si usuario NO esta presionando LMB y no ha presionado !F21
-            if !GetKeyState("LButton", "P"){
+             ; si usuario NO esta presionando LMB && tampoco esta usando ShareX
+            if !GetKeyState("LButton", "P") && !WinActive("ahk_exe ShareX.exe"){
                 Sleep(200)
                 SetTimer(moverCursorAlCentro, -100) ; Small delay for stability
             }
@@ -30,11 +30,16 @@ WindowChanged(wParam, lParam, *) {
 moverCursorAlCentro(){
     global mouseLocCanChange
     if mouseLocCanChange {
-        CoordMode("Mouse", "Window")
-        Sleep(100)
-        WinGetPos(&OutX, &OutY, &OutWidth, &OutHeight, "A")
-        Sleep(100)
-        MouseMove(OutWidth/2, OutHeight/2, 20)
+        try {
+            CoordMode("Mouse", "Window")
+            Sleep(100)
+            WinGetPos(&OutX, &OutY, &OutWidth, &OutHeight, "A")
+            Sleep(100)
+            MouseMove(OutWidth/2, OutHeight/2, 20)
+        } catch Error as e {
+            ToolTip("No hay selected app")
+            SetTimer(ToolTip, -2500)
+        }
     }
     mouseLocCanChange := true
 }
