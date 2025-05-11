@@ -4,7 +4,9 @@
 ; Set up window activation detection
 DllCall("RegisterShellHookWindow", "UInt", A_ScriptHwnd)
 msgNum := DllCall("RegisterWindowMessage", "Str", "SHELLHOOK")
-OnMessage msgNum, WindowChanged
+OnMessage(msgNum, WindowChanged)
+
+global mouseLocCanChange := true
 
 ; Store previous active window ID
 previousHwnd := 0
@@ -16,12 +18,25 @@ WindowChanged(wParam, lParam, *) {
     if (wParam = SHELLHOOK_WINDOWACTIVATED) {
         if (lParam != previousHwnd) {
             previousHwnd := lParam
-            if !GetKeyState("LButton", "P"){        ; si usuario NO esta presionando LMB
+             ; si usuario NO esta presionando LMB y no ha presionado !F21
+            if !GetKeyState("LButton", "P"){
                 Sleep(200)
                 SetTimer(moverCursorAlCentro, -100) ; Small delay for stability
             }
         }
     }
+}
+
+moverCursorAlCentro(){
+    global mouseLocCanChange
+    if mouseLocCanChange {
+        CoordMode("Mouse", "Window")
+        Sleep(100)
+        WinGetPos(&OutX, &OutY, &OutWidth, &OutHeight, "A")
+        Sleep(100)
+        MouseMove(OutWidth/2, OutHeight/2, 20)
+    }
+    mouseLocCanChange := true
 }
 
 ; MoveToCenter() {
@@ -35,3 +50,4 @@ WindowChanged(wParam, lParam, *) {
 
 ; Exit script with Esc
 ; Esc::ExitApp
+

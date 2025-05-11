@@ -1,9 +1,12 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance
 
+#Include "centrearMouse.ahk"
 #Include "hotkeysMaestro.ahk"
 #Include "hotkeysIdiomas.ahk"
-#Include "centrearMouse.ahk"
+#Include "hotkeysZBrush.ahk"
+#Include "miniBrowser.ahk"
+
 ; #o::Reload
 
 ; ~<!Tab::{										; ~ makes the AltTab work with no alteration
@@ -32,13 +35,6 @@ OutX := 0, OutY := OutWidth := OutHeight := 0
 
 ; SetCapsLockState('AlwaysOff')
 ; CapsLock::Send("{End}")
-
-moverCursorAlCentro(){
-    CoordMode("Mouse", "Window")
-    WinGetPos(&OutX, &OutY, &OutWidth, &OutHeight, "A")
-    Sleep(100)
-    MouseMove(OutWidth/2, OutHeight/2, 20)
-}
 
 ; Automate cortes de video en Blender VSE a botones extra de mouse
 #HotIf WinActive("ahk_exe blender.exe")

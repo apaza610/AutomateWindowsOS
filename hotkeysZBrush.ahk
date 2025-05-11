@@ -1,0 +1,30 @@
+#HotIf WinActive("ahk_exe ZBrush.exe")
+    +F24::{
+        Send("{b}")
+        Sleep(200)
+        Send("{s}")
+        Sleep(200)
+        Send("{u}")
+    }
+    +F23::{
+        Send("{b}")
+        Sleep(200)
+        Send("{c}")
+        Sleep(200)
+        Send("{b}")
+    }
+    +F22::{
+        Send("{b}")
+        Sleep(200)
+        Send("{d}")
+        Sleep(200)
+        Send("{s}")
+    }
+    F21::{
+        Send("{b}")
+        Sleep(200)
+        Send("{m}")
+        Sleep(200)
+        Send("{v}")
+    }
+#HotIf
