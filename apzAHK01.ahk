@@ -6,6 +6,7 @@
 #Include "hotkeysIdiomas.ahk"
 #Include "hotkeysZBrush.ahk"
 #Include "miniBrowser.ahk"
+#Include "tecla000.ahk"
 
 ; #o::Reload
 

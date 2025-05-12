@@ -16,7 +16,7 @@ lmc_set_handler('ApazaMacropad', function(button,direction)
      if (direction == 1) then return end
      ----------------------------------------------------------------
      if (button == 144) then   --NUMLOCK--
-          lmc_send_keys('{F13}')
+          lmc_send_keys('+{F20}')
      ----------------------------------------------------------------
      elseif (button == 111) then    --DIVIDE--
           lmc_send_keys('{F14}')
@@ -82,7 +82,7 @@ lmc_set_handler('ApazaMacropad', function(button,direction)
          lmc_send_keys('+{F21}')
      ----------------------------------------------------------------
      elseif (button == 96) then     --0--(NumLock ON)
-         lmc_send_keys('+{F20}')
+         lmc_send_keys('{F13}')
      elseif (button == 45) then     --INS--(NumLock OFF)
          lmc_send_keys('+{F9}')
      ---------------------------------------------------------------
