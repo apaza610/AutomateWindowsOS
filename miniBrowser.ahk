@@ -7,7 +7,7 @@ MiniBrowser.BackColor := "393939"
 
 WB := MiniBrowser.Add("ActiveX", "w500 h600", "Shell.Explorer").Value  ; The last parameter is the name of the ActiveX component.
 
-~+F19:: {
+~+F20:: {
     static guiVisible := false
     guiVisible := !guiVisible  ; Toggle state
     global mouseLocCanChange := false           ; evitar centrear el mouse

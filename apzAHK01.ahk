@@ -217,7 +217,7 @@ F15::{
 ; 		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
 ; 	}
 ; }
-+F20:: {
++F19:: {
 	if WinExist("Freeplane"){
 		WinActivate("Freeplane")
 		moverCursorAlCentro()

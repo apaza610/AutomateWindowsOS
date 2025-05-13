@@ -28,7 +28,7 @@ global maxInterval := 50  ; Maximum time (in milliseconds) between presses
 }
 
 ^F13::{
-    nuevoHotstring := InputBox("Enter new hotstring:", "Custom Hotstring")
+    nuevoHotstring := InputBox("Enter new hotstring:", "Custom Hotstring","W350 H90")
     
     FileObj := FileOpen(A_ScriptDir "\memoria.txt", "w")
     FileObj.Write(nuevoHotstring.Value)
