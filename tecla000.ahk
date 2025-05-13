@@ -22,7 +22,7 @@ global maxInterval := 50  ; Maximum time (in milliseconds) between presses
     {
         ; MsgBox "F4 pressed 3 times quickly!"
         pressCount := 0  ; Reset the counter
-        Cadena := FileRead("memoria.txt")
+        Cadena := FileRead(A_ScriptDir "\memoria.txt")
         Sleep(100)
         SendInput(Cadena)
     }
@@ -31,7 +31,7 @@ global maxInterval := 50  ; Maximum time (in milliseconds) between presses
 ^F13::{
     nuevoHotstring := InputBox("Enter new hotstring:", "Custom Hotstring","W350 H90")
     
-    FileObj := FileOpen("memoria.txt", "w")
+    FileObj := FileOpen(A_ScriptDir "\memoria.txt", "w")
     FileObj.Write(nuevoHotstring.Value)
     FileObj.Close()
 }
