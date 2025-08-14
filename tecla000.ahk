@@ -23,7 +23,6 @@ global maxInterval := 50  ; Maximum time (in milliseconds) between presses
         ; MsgBox "F4 pressed 3 times quickly!"
         pressCount := 0  ; Reset the counter
         Cadena := FileRead(A_ScriptDir "\memoria.txt")
-        Sleep(100)
         SendInput(Cadena)
     }
 }

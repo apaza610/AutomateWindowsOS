@@ -13,18 +13,20 @@ previousHwnd := 0
 
 WindowChanged(wParam, lParam, *) {
     global previousHwnd
+    global AllowMoverCursor
     static SHELLHOOK_WINDOWACTIVATED := 0x8004
     
     if (wParam = SHELLHOOK_WINDOWACTIVATED) {
         if (lParam != previousHwnd) {
             previousHwnd := lParam
              ; si usuario NO esta presionando LMB && tampoco esta usando ShareX
-            if !GetKeyState("LButton", "P") && !GetKeyState("RButton", "P") && !WinActive("ahk_exe ShareX.exe") && !WinActive("ahk_exe kando.exe"){
+            if !GetKeyState("LButton", "P") && !GetKeyState("RButton", "P") && !WinActive("ahk_exe ShareX.exe") && !WinActive("ahk_exe kando.exe") && AllowMoverCursor{
                 Sleep(200)
                 SetTimer(moverCursorAlCentro, -100) ; Small delay for stability
             }
         }
     }
+    AllowMoverCursor := true
 }
 
 moverCursorAlCentro(){

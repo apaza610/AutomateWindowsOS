@@ -16,6 +16,8 @@ WB := MiniBrowser.Add("ActiveX", "w500 h600", "Shell.Explorer").Value  ; The las
 
     if (WinActive("ahk_exe ZBrush.exe")){        
         elPath := elPath . "E:\misapps\AutomateWindowsOS\media\TecladoZBrush.svg"
+    }else if (WinActive("ahk_exe krita.exe")){
+        elPath := elPath . "E:\misapps\AutomateWindowsOS\media\TecladoKrita.svg"
     }else{
         elPath := elPath . "E:\misapps\AutomateWindowsOS\media\TecladoGral.svg"
     }

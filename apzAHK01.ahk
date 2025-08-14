@@ -29,10 +29,16 @@ SC045::{            ;PauseBreak key
     ; Sleep(100)
     ; Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
     ; ComObject("SAPI.SpVoice").Speak("japanese keyboard")
+
+	global AllowMoverCursor			; touch keyboard en windows 11 para hanzi y kanji
+	AllowMoverCursor := false
+	Sleep 500
+	Run("E:\misapps\AutomateWindowsOS\touchKeyboard.bat")
 }
 
 ; Centrear el cursor en medio de ventana actual
 OutX := 0, OutY := OutWidth := OutHeight := 0
+AllowMoverCursor := true
 
 ; SetCapsLockState('AlwaysOff')
 ; CapsLock::Send("{End}")
@@ -92,6 +98,7 @@ Insert::{
 
 ;---------------------------Teclas de Funcion-------------------------------------------
 ;#F13::MsgBox("Tecla NumLock")
+
 ;--------------------------Creacion de miniIMAGEN--------------------------------------------
 F14::{		;Tecla Divide
 	elPath := A_Clipboard	; C:\Users\win\bitmap.png
