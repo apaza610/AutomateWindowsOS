@@ -152,13 +152,13 @@ F15::{
 	MiGui := Gui()	;Gui("Resize")	pero pone barra encima
 	MiGui.Opt("AlwaysOnTop")
 		
-		MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939","abc def ghi")
+		MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939","abc")
 		MiGui.Show()
 		WinSetStyle "-0xC00000", "A"
 		MouseGetPos &RatonX, &RatonY
 		WinMove RatonX, RatonY, 200, 14, MiGui
 }
-^F15::Reload
+F16::Reload
 
 #HotIf WinActive("ahk_class AutoHotkeyGUI")
 ~Alt & LButton:: {

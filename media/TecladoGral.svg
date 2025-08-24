@@ -28,7 +28,7 @@
      inkscape:cy="288.25342"
      inkscape:window-width="1920"
      inkscape:window-height="1177"
-     inkscape:window-x="1072"
+     inkscape:window-x="2992"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="g192" />
@@ -682,6 +682,30 @@
        width="125"
        height="120"
        id="rect1" />
+    <rect
+       x="0"
+       y="0"
+       width="125"
+       height="120"
+       id="rect23" />
+    <rect
+       x="0"
+       y="0"
+       width="125"
+       height="120"
+       id="rect24" />
+    <rect
+       x="0"
+       y="0"
+       width="125"
+       height="120"
+       id="rect25" />
+    <rect
+       x="0"
+       y="0"
+       width="125"
+       height="120"
+       id="rect26" />
   </defs>
   <g
      inkscape:label="gral"
@@ -716,7 +740,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan1">NumLock</tspan></text>
+         id="tspan23">NumLock</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect174"
@@ -738,7 +762,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan2">7</tspan></text>
+         id="tspan25">7</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect175"
@@ -760,7 +784,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan3">4</tspan></text>
+         id="tspan26">4</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect176"
@@ -802,7 +826,8 @@
        inkscape:tile-w="26.458333"
        inkscape:tile-h="26.458333"
        inkscape:tile-x0="0"
-       inkscape:tile-y0="0" />
+       inkscape:tile-y0="0"
+       onclick="window.alert(&quot;dobleClick cierra&quot;)" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,48.535786,-0.35828851)"
@@ -810,7 +835,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan4">/</tspan></text>
+         id="tspan27">/</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect179"
@@ -832,7 +857,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan5">8</tspan></text>
+         id="tspan28">8</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect180"
@@ -854,7 +879,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan6">5</tspan></text>
+         id="tspan29">5</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect181"
@@ -876,7 +901,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#ffff00;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan7">hotstring</tspan></text>
+         id="tspan30">hotstring</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect183"
@@ -890,7 +915,8 @@
        inkscape:tile-w="26.458333"
        inkscape:tile-h="26.458333"
        inkscape:tile-x0="0"
-       inkscape:tile-y0="0" />
+       inkscape:tile-y0="0"
+       onclick="window.alert(&quot; ALT✥ set window size&quot;)" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,81.287628,-0.50711643)"
@@ -898,13 +924,13 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="28"
-         id="tspan8">*</tspan></text>
+         id="tspan31">*</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect188"
-       width="33.072918"
+       width="33.073002"
        height="31.750002"
-       x="99.21875"
+       x="99.218674"
        y="0"
        ry="9.0037899"
        inkscape:tile-cx="13.229166"
@@ -912,7 +938,8 @@
        inkscape:tile-w="26.458333"
        inkscape:tile-h="26.458333"
        inkscape:tile-x0="0"
-       inkscape:tile-y0="0" />
+       inkscape:tile-y0="0"
+       onclick="window.alert(&quot;fix zip Content\nfix JPG size, name, loc\nreload&quot;)" />
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect184"
@@ -934,7 +961,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan9">9</tspan></text>
+         id="tspan32">9</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect185"
@@ -956,7 +983,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan10">6</tspan></text>
+         id="tspan33">6</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect186"
@@ -992,7 +1019,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan11">freePlane</tspan></text>
+         id="tspan34">freePlane</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect189"
@@ -1006,7 +1033,8 @@
        inkscape:tile-w="26.458333"
        inkscape:tile-h="26.458333"
        inkscape:tile-x0="0"
-       inkscape:tile-y0="0" />
+       inkscape:tile-y0="0"
+       onclick="window.alert(&quot;-remove Path blanks&quot;)" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,114.34961,30.223137)"
@@ -1014,7 +1042,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan12">+</tspan></text>
+         id="tspan35">+</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
        id="rect190"
@@ -1036,7 +1064,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.87497"
-         id="tspan13">⌫</tspan></text>
+         id="tspan36">⌫</tspan></text>
     <path
        id="path191"
        style="fill:#ffffff;fill-opacity:0.858696;stroke-width:0.324047"
@@ -1049,7 +1077,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan14">KanDo</tspan></text>
+         id="tspan37">KanDo</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,109.42865,94.406643)"
@@ -1057,7 +1085,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect210);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan15">Enter</tspan></text>
+         id="tspan38">Enter</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,15.019241,94.431449)"
@@ -1065,7 +1093,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect96);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan16">1</tspan></text>
+         id="tspan39">1</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,48.178974,94.45901)"
@@ -1073,7 +1101,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect97);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan17">2</tspan></text>
+         id="tspan40">2</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,81.280829,94.45901)"
@@ -1081,7 +1109,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect98);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan18">3</tspan></text>
+         id="tspan41">3</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,15.10468,126.44879)"
@@ -1089,7 +1117,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect99);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan19">0</tspan></text>
+         id="tspan42">0</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,81.613623,121.04688)"
@@ -1097,7 +1125,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect100);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="28"
-         id="tspan20">.</tspan></text>
+         id="tspan43">.</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,114.45916,-3.9811522)"
@@ -1105,7 +1133,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect105);display:inline;fill:#000000;fill-opacity:0.858696"><tspan
          x="0"
          y="28"
-         id="tspan21">-</tspan></text>
+         id="tspan44">-</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,9.9894101,12.829541)"
@@ -1113,6 +1141,41 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
          x="0"
          y="18.666637"
-         id="tspan22">teclas</tspan></text>
+         id="tspan45">teclas</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,105.30271,43.999553)"
+       id="text23"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect23);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
+         x="0"
+         y="18.666637"
+         id="tspan46">imgSetup </tspan><tspan
+         x="0"
+         y="45.333261"
+         id="tspan47">TOOL</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,38.948783,14.155924)"
+       id="text24"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect24);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
+         x="0"
+         y="18.666637"
+         id="tspan48">imgFloat</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,107.89351,12.824029)"
+       id="text25"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect25);display:inline;fill:#ff0000;fill-opacity:0.858696"><tspan
+         x="0"
+         y="18.666637"
+         id="tspan49">fixing...</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,69.497287,12.474452)"
+       id="text26"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect26);display:inline;fill:#0000ff;fill-opacity:0.858696"><tspan
+         x="0"
+         y="18.666637"
+         id="tspan50">floatingTXT</tspan></text>
   </g>
 </svg>
