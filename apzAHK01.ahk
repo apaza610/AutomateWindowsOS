@@ -233,6 +233,11 @@ F16::Reload
 		Run("C:\Program Files\Freeplane\freeplane.exe")
 	}	
 }
+F20:: {
+	ClipWait()
+    text := A_Clipboard
+    A_Clipboard := text
+}
 ; #F21::MsgBox("ddddddddddddddddddd")
 ; F23:: {
 ; 	if WinExist("Blender"){
