@@ -158,7 +158,6 @@ F15::{
 		MouseGetPos &RatonX, &RatonY
 		WinMove RatonX, RatonY, 200, 14, MiGui
 }
-F16::Reload
 
 #HotIf WinActive("ahk_class AutoHotkeyGUI")
 ~Alt & LButton:: {
@@ -187,15 +186,9 @@ F16::Reload
 }
 #HotIf
 ;---------------------------------------------------------------------------------
-; F16::{
-; 	if WinExist("FuriganaTAGs"){
-; 		WinActivate("FuriganaTAGs")
-; 		moverCursorAlCentro()
-; 	}
-; 	else{
-; 		MsgBox("The app must be opened first")
-; 	}
-; }
+F16::{
+	Reload
+}
 
 ; F17:: {
 ; 	if WinExist("ApzTool"){
@@ -233,8 +226,8 @@ F16::Reload
 		Run("C:\Program Files\Freeplane\freeplane.exe")
 	}	
 }
-F20:: {
-	ClipWait()
+~F20:: {					; keep doing what F20 normalli does
+	ClipWait()				; clear html formatting from SVG hanzi
     text := A_Clipboard
     A_Clipboard := text
 }
@@ -259,10 +252,10 @@ F20:: {
 ; 	}
 ; }
 
-lstBrowsers := ["Firefox", "Brave", "Edge"]
-pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
-cntBrowsers := 1
-; +F20:: {
+; lstBrowsers := ["Firefox", "Brave", "Edge"]
+; pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
+; cntBrowsers := 1
+F13:: {
 ; 	global cntBrowsers
 ; 	if WinExist(lstBrowsers[cntBrowsers]){
 ; 		WinActivate(lstBrowsers[cntBrowsers])
@@ -275,7 +268,36 @@ cntBrowsers := 1
 ; 		cntBrowsers++
 ; 	else
 ; 		cntBrowsers := 1
-; }
+	folder := "E:\win\Downloads\"
+    pattern := "parte(\d+)\.wav"
+
+    latestFile := ""
+    latestTime := 0
+
+    Loop Files folder . "*.wav"
+    {
+        if RegExMatch(A_LoopFileName, pattern, &match)
+        {
+            if A_LoopFileTimeModified > latestTime
+            {
+                latestTime := A_LoopFileTimeModified
+                latestFile := A_LoopFileName
+                latestNum := match[1]
+            }
+        }
+    }
+
+    if latestFile != ""
+    {
+        newNum := latestNum + 1
+        newName := "parte" . newNum . ".wav"
+        SendText newName
+    }
+    else
+    {
+        SendText "No matching .wav file found."
+    }
+}
 
 ; lstFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "Double Commander"]	;"One Commander"
 ; pthFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "C:\Program Files\OneCommander\OneCommander.exe"]	;"C:\Program Files\OneCommander\OneCommander.exe"
