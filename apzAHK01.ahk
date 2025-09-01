@@ -269,7 +269,7 @@ F13:: {
 ; 	else
 ; 		cntBrowsers := 1
 	folder := "E:\win\Downloads\"
-    pattern := "parte(\d+)\.wav"
+    pattern := "aa(\d+)\.wav"
 
     latestFile := ""
     latestTime := 0
@@ -290,7 +290,7 @@ F13:: {
     if latestFile != ""
     {
         newNum := latestNum + 1
-        newName := "parte" . newNum . ".wav"
+        newName := "b" . newNum . ".wav"
         SendText newName
     }
     else
