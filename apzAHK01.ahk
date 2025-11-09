@@ -46,12 +46,13 @@ AllowMoverCursor := true
 ; Automate cortes de video en Blender VSE a botones extra de mouse
 #HotIf WinActive("ahk_exe blender.exe")
 XButton1::{
-    Send("{PgDn}")
+    Send("{PgUp}")
     Sleep(100)
     Send("{x}")
     Sleep(100)
     Send("{shift}{Backspace}")
     Sleep(100)
+	Send("]")
 }
 XButton2::{  
     Send("k") 
@@ -187,6 +188,10 @@ F15::{
 #HotIf
 ;---------------------------------------------------------------------------------
 F16::{
+	while WinExist("ahk_exe i_view64.exe") { 
+		WinClose("ahk_exe i_view64.exe")
+		Sleep(100)		; Small delay to prevent overwhelming the system
+	} 
 	Reload
 }
 

@@ -24,6 +24,9 @@ global estaMMactivo := true                       ; booleano superGlobal para de
 #HotIf WinActive("ahk_exe krita.exe")
     ; g::estaMMactivo ? Send("t") : Send("g")     ; MoveTool ctrl alt shift g
     +MButton::MButton
+    F16::{
+        A_Clipboard := StrReplace(A_Clipboard,"/","\")
+    }
 #HotIf WinActive("ahk_exe blender.exe")
     ; LCtrl::Send("{RControl}")
     ;LShift & LCtrl::MsgBox("nonono")

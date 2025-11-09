@@ -20,7 +20,7 @@ WindowChanged(wParam, lParam, *) {
         if (lParam != previousHwnd) {
             previousHwnd := lParam
              ; si usuario NO esta presionando LMB && tampoco esta usando ShareX
-            if !GetKeyState("LButton", "P") && !GetKeyState("RButton", "P") && !WinActive("ahk_exe ShareX.exe") && !WinActive("ahk_exe kando.exe") && !WinActivate("ahk_exe i_view64.exe") && AllowMoverCursor{
+            if !GetKeyState("LButton", "P") && !GetKeyState("RButton", "P") && !WinActive("ahk_exe ShareX.exe") && !WinActive("ahk_exe kando.exe") && !WinActive("ahk_exe i_view64.exe") && AllowMoverCursor{
                 Sleep(200)
                 SetTimer(moverCursorAlCentro, -100) ; Small delay for stability
             }
