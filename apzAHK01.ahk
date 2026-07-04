@@ -80,17 +80,25 @@ Insert::{
 	Btn2_Click(*){
 		CerrarApp()
 		WinActivate('Freeplane')
-		Send("!+{K}")
+		Send("!+{k}")
 	}
 	Btn3 := MiGui.AddButton("x160 y5 w75", "link")
 	Btn3.OnEvent("Click", Btn3_Click)
 	Btn3_Click(*){
 		CerrarApp()
 		WinActivate('Freeplane')
+		Send("^{k}")
+	}
+	Btn4 := MiGui.AddButton("x240 y5 w75", "file")
+	Btn4.OnEvent("Click", Btn4_Click)
+	Btn4_Click(*){
+		CerrarApp()
+		WinActivate('Freeplane')
+		Send("^+{k}")
 	}
 	
 	MouseGetPos &RatonX, &RatonY
-	MiGui.Show("w225 h0")
+	MiGui.Show("w300 h0")
 	WinSetStyle "-0xC00000", "A"
 	WinMove RatonX, RatonY, , , MiGui
 }
@@ -213,15 +221,15 @@ F16::{
 ; 		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
 ; 	}
 ; }
-; F19:: {
-; 	if WinExist("Krita"){
-; 		WinActivate("Krita")
-; 		moverCursorAlCentro()
-; 	}
-; 	else{
-; 		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
-; 	}
-; }
+F19:: {
+	if WinExist("Krita"){
+		WinActivate("Krita")
+		moverCursorAlCentro()
+	}
+	else{
+		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
+	}
+}
 +F19:: {
 	if WinExist("Freeplane"){
 		WinActivate("Freeplane")
@@ -329,3 +337,4 @@ return
 ::ppp::<?php ?>{Left 3}
 ::sss::show_debug_message(
 ::nnn::ñ
+::rrr::1:1 aspect ratio
