@@ -23,7 +23,7 @@ WB := MiniBrowser.Add("ActiveX", "w500 h600", "Shell.Explorer").Value  ; The las
     }
     
     if (guiVisible) {
-        MiniBrowser.Show("x0 y1200 w520 h620")
+        MiniBrowser.Show("x0 y0 w520 h620")
         WB.Navigate(elPath)  ; This is specific to the web browser control.
     } else {
         MiniBrowser.Hide()

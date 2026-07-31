@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance
 
 #Include "centrearMouse.ahk"
@@ -112,11 +112,7 @@ Insert::{
 F14::{		;Tecla Divide
 	elPath := A_Clipboard	; C:\Users\win\bitmap.png
 
-	if InStr(elPath, A_Space){
-		MsgBox('error path has blank spaces!!')
-		elPath := "E:\win\Pictures\SavedPictures\MapeadoDeTeclas.png"
-	}
-	else if not (InStr(elPath, ".png") or InStr(elPath, ".jpg") or InStr(elPath, ".gif")) {
+	if not (InStr(elPath, ".png") or InStr(elPath, ".jpg") or InStr(elPath, ".gif")) {
 		; MsgBox('path en clipboard is not a picture')
 		elPath := "E:\win\Pictures\Screenshots\MapeadoDeTeclas.png"
 	}
@@ -141,7 +137,7 @@ F14::{		;Tecla Divide
 
 getDimensiones(elPath){
 	shell := ComObject("WScript.Shell.1")
-	exec := shell.exec(A_ComSpec " /C magick.exe identify -ping -format %w,%h " elPath)
+	exec := shell.exec(A_ComSpec " /C magick.exe identify -ping -format %w,%h `"" elPath "`"")
 	aLados := StrSplit(exec.StdOut.ReadAll(),',')
 
 	if(Integer(aLados[2]) > 600){	;gifs suelen dar valores enormes de 5000+
@@ -203,16 +199,61 @@ F16::{
 	Reload
 }
 
-; F17:: {
-; 	if WinExist("ApzTool"){
-; 		WinActivate("ApzTool")
-; 		moverCursorAlCentro()
-; 	}
-; 	else{
-; 		Run("E:\misapps\pcjava\ApazaMmpTool\out\artifacts\ApazaMmpTool_jar\ApazaMmpTool.jar")
-; 	}
-; }
-; F18:: {
+; Press F17 to convert the SVG file path in clipboard to Plain SVG
+F17::{
+    svgPath := A_Clipboard
+
+    if !FileExist(svgPath) {
+        MsgBox "File not found:`n" svgPath
+        return
+    }
+
+    svg := FileRead(svgPath, "UTF-8")
+
+    js := "
+(
+<script><![CDATA[
+window.addEventListener(""load"", function () {
+    const g1 = document.getElementById(""g1"");
+    const image1 = document.getElementById(""image1"");
+
+    if (g1) {
+        g1.style.cursor = ""pointer"";
+
+        g1.addEventListener(""click"", function (e) {
+            e.stopPropagation();
+            g1.style.display = ""none"";
+        });
+    }
+
+    if (image1) {
+        image1.style.cursor = ""pointer"";
+
+        image1.addEventListener(""click"", function () {
+            if (g1) {
+                g1.style.display = """";
+            }
+        });
+    }
+});
+]]></script>
+
+)"
+
+    if !RegExMatch(svg, "</svg>\s*$") {
+        MsgBox "Closing </svg> tag not found."
+        return
+    }
+
+    svg := RegExReplace(svg, "</svg>\s*$", js . "`r`n</svg>")
+
+    FileDelete(svgPath)
+    FileAppend(svg, svgPath, "UTF-8")
+
+    MsgBox "JavaScript inserted successfully."
+}
+
+F18:: {
 ; 	if WinExist("drawio"){
 ; 		WinActivate("drawio")
 ; 		moverCursorAlCentro()
@@ -220,7 +261,8 @@ F16::{
 ; 	else{
 ; 		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
 ; 	}
-; }
+	Run("E:\assetsDAZ\main\00estampadorG3G9.ahk")
+}
 F19:: {
 	if WinExist("Krita"){
 		WinActivate("Krita")
