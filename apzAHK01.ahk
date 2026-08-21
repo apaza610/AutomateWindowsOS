@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 #SingleInstance
 
 #Include "centrearMouse.ahk"
@@ -8,7 +8,7 @@
 #Include "miniBrowser.ahk"
 #Include "tecla000.ahk"
 
-; #o::Reload
+#o:: Reload
 
 ; ~<!Tab::{										; ~ makes the AltTab work with no alteration
 ; 	Sleep(500)									; wait till the alt tab menu exist
@@ -23,18 +23,24 @@ SetTitleMatchMode(2)
 ; SC045:: WinActivate("Visual Studio Code") ;PauseBreak key
 
 ; Cambiando el teclado a Hiragana
-SC045::{            ;PauseBreak key
-    ; Send("{Alt Down}{LShift Down}{LShift Up}{Alt Up}")
-    ; SoundBeep(999,300)
-    ; Sleep(100)
-    ; Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
-    ; ComObject("SAPI.SpVoice").Speak("japanese keyboard")
+SC045:: {            ;PauseBreak key
+	; Send("{Alt Down}{LShift Down}{LShift Up}{Alt Up}")
+	; SoundBeep(999,300)
+	; Sleep(100)
+	; Send("{LCtrl Down}{CapsLock Down}{CapsLock Up}{LCtrl Up}")
+	; ComObject("SAPI.SpVoice").Speak("japanese keyboard")
 
 	global AllowMoverCursor			; touch keyboard en windows 11 para hanzi y kanji
 	AllowMoverCursor := false
 	Sleep 500
 	Run("E:\misapps\AutomateWindowsOS\touchKeyboard.bat")
 }
+
+; ocultar/mostrar Taskbar, pero sin mostrar ventana
+; #t:: {
+; 	Run("C:\Program Files\thide\bin\thide toggle", , "Hide")
+; 	SoundPlay("*48")  ; Exclamation sound
+; }
 
 ; Centrear el cursor en medio de ventana actual
 OutX := 0, OutY := OutWidth := OutHeight := 0
@@ -45,60 +51,80 @@ AllowMoverCursor := true
 
 ; Automate cortes de video en Blender VSE a botones extra de mouse
 #HotIf WinActive("ahk_exe blender.exe")
-XButton1::{
-    Send("{PgUp}")
-    Sleep(100)
-    Send("{x}")
-    Sleep(100)
-    Send("{shift}{Backspace}")
-    Sleep(100)
+XButton1:: {
+	Send("{PgUp}")
+	Sleep(100)
+	Send("{x}")
+	Sleep(100)
+	Send("{shift}{Backspace}")
+	Sleep(100)
 	Send("]")
 }
-XButton2::{  
-    Send("k") 
+XButton2:: {
+	Send("k")
 }
 
 ; Copiar image path al clipboard para IrfanView
 #HotIf WinActive("ahk_exe i_view64.exe")
-^+c::{
-    Send("+p")
+^+c:: {
+	Send("+p")
 }
 ; ReAprovechar la tecla Ins para 3 shortcuts: insert image interna, insert image externa, insert file o hyperlink
-CoordMode "Mouse","Screen"
+CoordMode "Mouse", "Screen"
 #HotIf WinActive('Freeplane')
-Insert::{
+Insert:: {
 	MiGui := Gui()
 	Btn1 := MiGui.AddButton("x5 y5 w75", "img↓")
 	Btn1.OnEvent("Click", Btn1_Click)
-	Btn1_Click(*){
+	Btn1_Click(*) {
 		CerrarApp()
 		WinActivate('Freeplane')
 		Send("{Insert}")
 	}
 	Btn2 := MiGui.AddButton("x80 y5 w75", "img↑")
 	Btn2.OnEvent("Click", Btn2_Click)
-	Btn2_Click(*){
+	Btn2_Click(*) {
 		CerrarApp()
 		WinActivate('Freeplane')
 		Send("!+{k}")
 	}
 	Btn3 := MiGui.AddButton("x160 y5 w75", "link")
 	Btn3.OnEvent("Click", Btn3_Click)
-	Btn3_Click(*){
+	Btn3_Click(*) {
+		ProcessInputs()
 		CerrarApp()
 		WinActivate('Freeplane')
 		Send("^{k}")
 	}
 	Btn4 := MiGui.AddButton("x240 y5 w75", "file")
 	Btn4.OnEvent("Click", Btn4_Click)
-	Btn4_Click(*){
+	Btn4_Click(*) {
 		CerrarApp()
 		WinActivate('Freeplane')
 		Send("^+{k}")
 	}
-	
+	; Labels and number input fields
+	MiGui.AddText("x5 y40 w40", "mins")
+	EditMins := MiGui.AddEdit("x45 y40 w50 Number")
+
+	MiGui.AddText("x105 y40 w40", "secs")
+	EditSecs := MiGui.AddEdit("x145 y40 w50 Number")
+
+	MiGui.AddText("x205 y40 w40", "page")
+	EditPage := MiGui.AddEdit("x245 y40 w50 Number")
+
+	; Function to process inputs and update clipboard
+	ProcessInputs() {
+		mins := EditMins.Value
+		secs := EditSecs.Value
+		if (secs != "") {
+			time := (mins != "" ? mins : 0) * 60 + secs
+			A_Clipboard := A_Clipboard . "#t=" . time . ""
+		}
+	}
+
 	MouseGetPos &RatonX, &RatonY
-	MiGui.Show("w300 h0")
+	MiGui.Show("w300 h50")
 	WinSetStyle "-0xC00000", "A"
 	WinMove RatonX, RatonY, , , MiGui
 }
@@ -109,7 +135,7 @@ Insert::{
 ;#F13::MsgBox("Tecla NumLock")
 
 ;--------------------------Creacion de miniIMAGEN--------------------------------------------
-F14::{		;Tecla Divide
+F14:: {		;Tecla Divide
 	elPath := A_Clipboard	; C:\Users\win\bitmap.png
 
 	if not (InStr(elPath, ".png") or InStr(elPath, ".jpg") or InStr(elPath, ".gif")) {
@@ -124,167 +150,168 @@ F14::{		;Tecla Divide
 	MiGui.MarginY := 0
 	MiGui.BackColor := "red"
 	MiGui.Opt("AlwaysOnTop")
-	
-	Foto := MiGui.AddPicture("",elPath)
-	Foto.OnEvent("DoubleClick", CerrarApp)
-	
+	MiGui.OnEvent("Escape", CerrarApp)
+
+	Foto := MiGui.AddPicture("", elPath)
+
 	MiGui.Show()	;"w185 h162"
 	WinSetStyle "-0xC00000", "A"
-	WinGetPos &X,&Y,&W,&H, MiGui		
+	WinGetPos &X, &Y, &W, &H, MiGui
 
 	WinMove X, Y, aLados[1], aLados[2], MiGui
 }
 
-getDimensiones(elPath){
+getDimensiones(elPath) {
 	shell := ComObject("WScript.Shell.1")
 	exec := shell.exec(A_ComSpec " /C magick.exe identify -ping -format %w,%h `"" elPath "`"")
-	aLados := StrSplit(exec.StdOut.ReadAll(),',')
+	aLados := StrSplit(exec.StdOut.ReadAll(), ',')
 
-	if(Integer(aLados[2]) > 600){	;gifs suelen dar valores enormes de 5000+
+	if (Integer(aLados[2]) > 600) {	;gifs suelen dar valores enormes de 5000+
 		aLados[2] := '600'
 	}
 
 	return aLados 		;strings array
 }
 
-CerrarApp(*){
+CerrarApp(*) {
 	WinClose("A")
 }
 
 ;---------------------------Creacion de miniNOTE--------------------------------
-CoordMode "Mouse","Screen"
-F15::{
+CoordMode "Mouse", "Screen"
+F15:: {
 	MiGui := Gui()	;Gui("Resize")	pero pone barra encima
 	MiGui.Opt("AlwaysOnTop")
-		
-		MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939","abc")
-		MiGui.Show()
-		WinSetStyle "-0xC00000", "A"
-		MouseGetPos &RatonX, &RatonY
-		WinMove RatonX, RatonY, 200, 14, MiGui
+	MiGui.OnEvent("Escape", CerrarApp)
+
+	MiGui.AddEdit("w500 h500 x-3 y-2 cyellow Background393939", "abc")
+	MiGui.Show()
+	WinSetStyle "-0xC00000", "A"
+	MouseGetPos &RatonX, &RatonY
+	WinMove RatonX, RatonY, 200, 14, MiGui
 }
 
 #HotIf WinActive("ahk_class AutoHotkeyGUI")
 ~Alt & LButton:: {
 	MouseGetPos &RatonX, &RatonY
-	WinMove RatonX, RatonY,,, "A"
+	WinMove RatonX, RatonY, , , "A"
 }
 
 ~Alt & Right:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,W+20,, "A"
+	WinGetPos &X, &Y, &W, &H, "A"
+	WinMove , , W + 20, , "A"
 }
 
 ~Alt & Left:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,W-20,, "A"
+	WinGetPos &X, &Y, &W, &H, "A"
+	WinMove , , W - 20, , "A"
 }
 
 ~Alt & Up:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,,H-14, "A"
+	WinGetPos &X, &Y, &W, &H, "A"
+	WinMove , , , H - 14, "A"
 }
 
 ~Alt & Down:: {
-	WinGetPos &X,&Y,&W,&H, "A"
-	WinMove ,,,H+14, "A"
+	WinGetPos &X, &Y, &W, &H, "A"
+	WinMove , , , H + 14, "A"
 }
 #HotIf
 ;---------------------------------------------------------------------------------
-F16::{
-	while WinExist("ahk_exe i_view64.exe") { 
+F16:: {
+	while WinExist("ahk_exe i_view64.exe") {
 		WinClose("ahk_exe i_view64.exe")
 		Sleep(100)		; Small delay to prevent overwhelming the system
-	} 
+	}
 	Reload
 }
 
 ; Press F17 to convert the SVG file path in clipboard to Plain SVG
-F17::{
-    svgPath := A_Clipboard
+F17:: {
+	svgPath := A_Clipboard
 
-    if !FileExist(svgPath) {
-        MsgBox "File not found:`n" svgPath
-        return
-    }
+	if !FileExist(svgPath) {
+		MsgBox "File not found:`n" svgPath
+		return
+	}
 
-    svg := FileRead(svgPath, "UTF-8")
+	svg := FileRead(svgPath, "UTF-8")
 
-    js := "
-(
-<script><![CDATA[
-window.addEventListener(""load"", function () {
-    const g1 = document.getElementById(""g1"");
-    const image1 = document.getElementById(""image1"");
+	js := "
+	(
+		<script><![CDATA[
+		window.addEventListener(""load"", function () {
+		    const g1 = document.getElementById(""g1"");
+		    const image1 = document.getElementById(""image1"");
+		
+		    if (g1) {
+		        g1.style.cursor = ""pointer"";
+		
+		        g1.addEventListener(""click"", function (e) {
+		            e.stopPropagation();
+		            g1.style.display = ""none"";
+		        });
+		    }
+		
+		    if (image1) {
+		        image1.style.cursor = ""pointer"";
+		
+		        image1.addEventListener(""click"", function () {
+		            if (g1) {
+		                g1.style.display = """";
+		            }
+		        });
+		    }
+		});
+		]]></script>
+		
+	)"
 
-    if (g1) {
-        g1.style.cursor = ""pointer"";
+	if !RegExMatch(svg, "</svg>\s*$") {
+		MsgBox "Closing </svg> tag not found."
+		return
+	}
 
-        g1.addEventListener(""click"", function (e) {
-            e.stopPropagation();
-            g1.style.display = ""none"";
-        });
-    }
+	svg := RegExReplace(svg, "</svg>\s*$", js . "`r`n</svg>")
 
-    if (image1) {
-        image1.style.cursor = ""pointer"";
+	FileDelete(svgPath)
+	FileAppend(svg, svgPath, "UTF-8")
 
-        image1.addEventListener(""click"", function () {
-            if (g1) {
-                g1.style.display = """";
-            }
-        });
-    }
-});
-]]></script>
-
-)"
-
-    if !RegExMatch(svg, "</svg>\s*$") {
-        MsgBox "Closing </svg> tag not found."
-        return
-    }
-
-    svg := RegExReplace(svg, "</svg>\s*$", js . "`r`n</svg>")
-
-    FileDelete(svgPath)
-    FileAppend(svg, svgPath, "UTF-8")
-
-    MsgBox "JavaScript inserted successfully."
+	MsgBox "JavaScript inserted successfully."
 }
 
 F18:: {
-; 	if WinExist("drawio"){
-; 		WinActivate("drawio")
-; 		moverCursorAlCentro()
-; 	}
-; 	else{
-; 		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
-; 	}
+	; 	if WinExist("drawio"){
+	; 		WinActivate("drawio")
+	; 		moverCursorAlCentro()
+	; 	}
+	; 	else{
+	; 		Run("C:\Users\win\AppData\Local\Programs\draw.io\draw.io.exe")
+	; 	}
 	Run("E:\assetsDAZ\main\00estampadorG3G9.ahk")
 }
 F19:: {
-	if WinExist("Krita"){
+	if WinExist("Krita") {
 		WinActivate("Krita")
 		moverCursorAlCentro()
 	}
-	else{
+	else {
 		Run("C:\Program Files\Krita (x64)\bin\krita.exe")
 	}
 }
 +F19:: {
-	if WinExist("Freeplane"){
+	if WinExist("Freeplane") {
 		WinActivate("Freeplane")
 		moverCursorAlCentro()
 	}
-	else{
+	else {
 		Run("C:\Program Files\Freeplane\freeplane.exe")
-	}	
+	}
 }
 ~F20:: {					; keep doing what F20 normalli does
 	ClipWait()				; clear html formatting from SVG hanzi
-    text := A_Clipboard
-    A_Clipboard := text
+	text := A_Clipboard
+	A_Clipboard := text
 }
 ; #F21::MsgBox("ddddddddddddddddddd")
 ; F23:: {
@@ -311,68 +338,116 @@ F19:: {
 ; pthBrowsers := ["C:\Program Files\Mozilla Firefox\firefox.exe", "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe", "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
 ; cntBrowsers := 1
 F13:: {
-; 	global cntBrowsers
-; 	if WinExist(lstBrowsers[cntBrowsers]){
-; 		WinActivate(lstBrowsers[cntBrowsers])
-; 		moverCursorAlCentro()
-; 	}
-; 	else{
-; 		Run(pthBrowsers[cntBrowsers])
-; 	}
-; 	if cntBrowsers < lstBrowsers.Length
-; 		cntBrowsers++
-; 	else
-; 		cntBrowsers := 1
+	; 	global cntBrowsers
+	; 	if WinExist(lstBrowsers[cntBrowsers]){
+	; 		WinActivate(lstBrowsers[cntBrowsers])
+	; 		moverCursorAlCentro()
+	; 	}
+	; 	else{
+	; 		Run(pthBrowsers[cntBrowsers])
+	; 	}
+	; 	if cntBrowsers < lstBrowsers.Length
+	; 		cntBrowsers++
+	; 	else
+	; 		cntBrowsers := 1
 	folder := "E:\win\Downloads\"
-    pattern := "aa(\d+)\.wav"
+	pattern := "aa(\d+)\.wav"
 
-    latestFile := ""
-    latestTime := 0
+	latestFile := ""
+	latestTime := 0
 
-    Loop Files folder . "*.wav"
-    {
-        if RegExMatch(A_LoopFileName, pattern, &match)
-        {
-            if A_LoopFileTimeModified > latestTime
-            {
-                latestTime := A_LoopFileTimeModified
-                latestFile := A_LoopFileName
-                latestNum := match[1]
-            }
-        }
-    }
+	Loop Files folder . "*.wav"
+	{
+		if RegExMatch(A_LoopFileName, pattern, &match)
+		{
+			if A_LoopFileTimeModified > latestTime
+			{
+				latestTime := A_LoopFileTimeModified
+				latestFile := A_LoopFileName
+				latestNum := match[1]
+			}
+		}
+	}
 
-    if latestFile != ""
-    {
-        newNum := latestNum + 1
-        newName := "b" . newNum . ".wav"
-        SendText newName
-    }
-    else
-    {
-        SendText "No matching .wav file found."
-    }
+	if latestFile != ""
+	{
+		newNum := latestNum + 1
+		newName := "b" . newNum . ".wav"
+		SendText newName
+	}
+	else
+	{
+		SendText "No matching .wav file found."
+	}
 }
+
+; --- Main F13 Menu ---
+#HotIf WinActive("ahk_exe freeplane.exe")
+
+F13:: {
+    ; 1. Display the instructions
+    ToolTip(
+        "(1)	(2)	(3)	(4)	(5)	(6)`n" .
+        "R	G	B	白	黒?	Clr`n" .
+		"^R	^G	^L	^K	^Q	^D`n" .
+        "	----- F4: aplicarEstilos -----	"
+    )
+
+    ; 2. Wait for a single keystroke
+    ih := InputHook("L1 T5")
+    ih.Start()
+    ih.Wait()
+
+    ; 3. Clear the tooltip immediately
+    ToolTip()
+
+    ; 4. Send the corresponding shortcut
+    switch ih.Input {
+        case "1": Send("^r") ; Ctrl + R
+        case "2": Send("^g") ; Ctrl + G
+        case "3": Send("^l") ; Ctrl + L
+        case "4": Send("^k") ; Ctrl + K 
+        case "5": Send("^q") ; Ctrl + Q 
+        case "6": Send("^d") ; Ctrl + D
+        default: return      
+    }
+
+    ; 5. Check if we are inside the specific dialog window
+    ; if not WinActive("Edit node core in dialog") {
+        
+    ;     ; Wait for 1 second to let Freeplane process the first shortcut
+    ;     Sleep(1000)
+
+    ;     ; Send Enter to finalize the inline text edit and close the dialog
+    ;     Send("{Enter}")
+
+    ;     ; Send Ctrl + Shift + F4 to trigger your Groovy script on the node
+    ;     Send("{F4}")
+    ; }
+}
+
+; Reset the condition so other hotkeys aren't restricted to Freeplane
+#HotIf
 
 ; lstFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "Double Commander"]	;"One Commander"
 ; pthFileManagers := ["ahk_class CabinetWClass ahk_exe explorer.exe", "C:\Program Files\OneCommander\OneCommander.exe"]	;"C:\Program Files\OneCommander\OneCommander.exe"
 ; cntFileManager := 1
 ; +F19:: {
-	; global cntFileManager
-	; if WinExist(lstFileManagers[cntFileManager]){
-	; 	WinActivate(lstFileManagers[cntFileManager])
-	; 	moverCursorAlCentro()
-	; }
-	; else{
-	; 	Run(pthFileManagers[cntFileManager])
-	; }
-	; if cntFileManager < lstFileManagers.Length
-	; 	cntFileManager++
-	; else
-	; 	cntFileManager := 1
+; global cntFileManager
+; if WinExist(lstFileManagers[cntFileManager]){
+; 	WinActivate(lstFileManagers[cntFileManager])
 ; 	moverCursorAlCentro()
 ; }
-+F8::MsgBox("+f8")
+; else{
+; 	Run(pthFileManagers[cntFileManager])
+; }
+; if cntFileManager < lstFileManagers.Length
+; 	cntFileManager++
+; else
+; 	cntFileManager := 1
+; 	moverCursorAlCentro()
+; }
++F8:: MsgBox("+f8")
 ;-------------------hotstrings----------------------------------------------------
 return
 ::vvv::vid0.mp4
